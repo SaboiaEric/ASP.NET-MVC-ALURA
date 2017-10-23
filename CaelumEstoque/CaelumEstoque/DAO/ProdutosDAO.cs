@@ -13,7 +13,15 @@ namespace CaelumEstoque.DAO
             using (var context = new EstoqueContext())
             {
                 context.Produtos.Add(produto);
-                context.SaveChanges();
+                try
+                {
+                    context.SaveChanges();
+                }
+                catch (Exception e)
+                {
+                    throw new Exception(e.Message);
+                }
+                
             }
         }
 
