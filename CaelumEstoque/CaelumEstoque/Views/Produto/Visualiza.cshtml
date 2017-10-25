@@ -18,8 +18,7 @@
         Preco: @ViewBag.Produto.Preco <br />
         Descrição: @ViewBag.Produto.Descricao <br />
         Categoria: @ViewBag.Produto.CategoriaId <br />
-
-        @Html.ActionLink("Voltar para a lista de produtos","Index","Produto")
+        @Html.RouteLink("Voltar para a lista de produtos", "ListaProdutos")
     </div>
 </body>
 </html>
