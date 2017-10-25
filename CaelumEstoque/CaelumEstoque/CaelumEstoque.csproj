@@ -129,7 +129,6 @@
     <Content Include="Views\Produto\Index.cshtml" />
     <Content Include="Views\Produto\Form.cshtml" />
     <Content Include="Views\Produto\Adiciona.cshtml" />
-    <Content Include="Views\Produto\Visualiza.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
