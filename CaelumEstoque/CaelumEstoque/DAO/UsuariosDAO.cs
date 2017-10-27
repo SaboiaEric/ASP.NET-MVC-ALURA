@@ -46,7 +46,22 @@ namespace CaelumEstoque.DAO
         {
             using (var contexto = new EstoqueContext())
             {
+                try
+                {
+                    //contexto.Database.Connection.Open();
+                    return contexto.Usuarios.FirstOrDefault(u => u.Nome == login && u.Senha == senha);
+                }
+                catch (Exception e)
+                {
+                    string error = e.Message;
+                }
+                finally
+                {
+                    
+                }
+
                 return contexto.Usuarios.FirstOrDefault(u => u.Nome == login && u.Senha == senha);
+
             }
         }
     }
