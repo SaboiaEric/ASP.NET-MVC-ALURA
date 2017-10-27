@@ -1,0 +1,32 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using System.Web.Routing;
+
+namespace CaelumEstoque.Filtros
+{
+    public class AutorizacaoFilterAttribute : ActionFilterAttribute
+    {
+        /// <summary>
+        /// Filtro de autorização
+        /// </summary>
+        /// <param name="filterContext"></param>
+        public override void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            object usuario = 
+                filterContext.HttpContext.Session["usuarioLogado"];
+
+            if(usuario == null)
+            {
+                filterContext.Result = new RedirectToRouteResult(
+                    new RouteValueDictionary(
+                        new { controller = "Login", action = "Index"}    
+                    )
+                 );
+            }
+            
+        }
+    }
+}

@@ -5,18 +5,22 @@ using System.Web;
 using System.Web.Mvc;
 using CaelumEstoque.DAO;
 using CaelumEstoque.Models;
+using CaelumEstoque.Filtros;
 
 namespace CaelumEstoque.Controllers
 {
+    [AutorizacaoFilter]
     public class ProdutoController : Controller
     {
         // GET: Produto
-        [Route("produtos",Name ="ListaProdutos")]
+        [Route("produtos", Name = "ListaProdutos")]
         public ActionResult Index()
         {
+
             ProdutosDAO dao = new ProdutosDAO();
             IList<Produto> produtos = dao.Lista();
             return View(produtos);
+
         }
 
         public ActionResult Form()
@@ -49,9 +53,9 @@ namespace CaelumEstoque.Controllers
                 CategoriasDAO categorias = new CategoriasDAO();
                 ViewBag.Categorias = categorias.Lista();
                 return View("Form");
-            }          
+            }
         }
-        [Route("produtos/{id}",Name ="VisualizaProduto")]
+        [Route("produtos/{id}", Name = "VisualizaProduto")]
         public ActionResult Visualiza(int id)
         {
             ProdutosDAO dao = new ProdutosDAO();
