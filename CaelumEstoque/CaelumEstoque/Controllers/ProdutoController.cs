@@ -32,6 +32,7 @@ namespace CaelumEstoque.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Adiciona(Produto produto)
         {
             int idInformatica = 1;
